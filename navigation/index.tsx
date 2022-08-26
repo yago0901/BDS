@@ -7,12 +7,12 @@ import { ColorSchemeName, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import ModalScreen from '../screens/ModalScreen';
+import ModalScreen from '../screens/TelaUsuario/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import Ranked from '../screens/Ranked';
-import Shop from '../screens/Shop';
-import Pesquisa from '../screens/Pesquisa';
-import Home from '../screens/Home';
+import Ranked from '../screens/Ranked/Ranked';
+import Shop from '../screens/Shop/Shop';
+import Pesquisa from '../screens/Pesquisa/Pesquisa';
+import Home from '../screens/Home/Home';
 import Calendario from '../screens/Calendario';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
