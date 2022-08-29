@@ -1,42 +1,40 @@
 import { Alert } from 'react-native';
 import { 
-Container, Title, CalendarioCompleto, CalendarioTopo, Dia, CalendarioCorpo 
+Container, Title, CalendarioCompleto, CalendarioTopo, CalendarioCorpo,
+TitleCalendario, Descricao, Informacao, Texto
 } from './styles';
+import CalendarioSemanal from '../../CalendarioSemanal'
+
+type Props = {
+  date: Date;
+}
 
 export default function Calendario() {
+  const date = new Date();
+
   return (
     <Container>
       <Title>Calendário de Batalhas </Title>
             
       <CalendarioCompleto>
         <CalendarioTopo>
-
-          <Dia onPress={() => Alert.alert('Botão Dom precionado')}>
-            Dom       
-          </Dia>
-          <Dia onPress={() => Alert.alert('Botão Seg precionado')}>
-            Seg
-          </Dia>
-          <Dia onPress={() => Alert.alert('Botão Ter precionado')}>
-            Ter
-          </Dia>
-          <Dia onPress={() => Alert.alert('Botão Qua precionado')}>
-            Qua
-          </Dia>
-          <Dia onPress={() => Alert.alert('Botão Qui precionado')}>
-            Qui
-          </Dia>
-          <Dia onPress={() => Alert.alert('Botão Sex precionado')}>
-            Sex
-          </Dia>
-          <Dia onPress={() => Alert.alert('Botão Sab precionado')}>
-            Sab
-          </Dia>
-
+          
+          <CalendarioSemanal date={date} />
+          
         </CalendarioTopo>
-        
-        <CalendarioCorpo>
 
+        <CalendarioCorpo>
+          
+          <TitleCalendario>
+            Horário e Localização
+          </TitleCalendario>
+
+          <Descricao>
+            <Informacao>
+              Aqui você pode encontrar horário e localização de diversas Batalhas de RAP.
+            </Informacao>
+          </Descricao>
+          
         </CalendarioCorpo>
       </CalendarioCompleto>
     </Container>
