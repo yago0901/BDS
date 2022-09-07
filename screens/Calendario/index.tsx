@@ -1,29 +1,37 @@
-import { Alert } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 import { 
 Container, Title, CalendarioCompleto, CalendarioTopo, CalendarioCorpo,
 TitleCalendario, Descricao, Informacao, Texto
 } from './styles';
 import CalendarioSemanal from '../../CalendarioSemanal'
+import { useState } from 'react';
 
 type Props = {
   date: Date;
 }
 
-export default function Calendario() {
-  const date = new Date();
+const Calendario: React.FC = () => {
+  const [date, setDate] = useState(new Date());
 
   return (
-    <Container>
+    <Container style={styles.safe}>
       <Title>Calendário de Batalhas </Title>
-            
-      <CalendarioCompleto>
-        <CalendarioTopo>
-          
-          <CalendarioSemanal date={date} />
-          
-        </CalendarioTopo>
+      <CalendarioSemanal date={date} onChange={ (newDate) => setDate(newDate) } />
+      
+    </Container>
+  );
+}
 
-        <CalendarioCorpo>
+
+const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+  },
+});
+
+export default Calendario;
+
+/*<CalendarioCorpo>
           
           <TitleCalendario>
             Horário e Localização
@@ -35,8 +43,4 @@ export default function Calendario() {
             </Informacao>
           </Descricao>
           
-        </CalendarioCorpo>
-      </CalendarioCompleto>
-    </Container>
-  );
-}
+        </CalendarioCorpo>*/
